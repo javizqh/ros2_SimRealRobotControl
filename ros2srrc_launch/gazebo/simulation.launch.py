@@ -182,7 +182,7 @@ def generate_launch_description():
         PACKAGE_NAME + '.world')
     # DECLARE Gazebo LAUNCH file:
     gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
+                PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch'), '/gzserver.launch.py']),
                 launch_arguments={'world': robot_gazebo}.items(),
             )
 
