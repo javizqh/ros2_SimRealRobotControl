@@ -173,18 +173,6 @@ def generate_launch_description():
     print("Robot configuration:")
     print(CONFIGURATION["ID"] + " -> " + CONFIGURATION["Name"])
     print("")
-    
-    # ***** GAZEBO ***** #   
-    # DECLARE Gazebo WORLD file:
-    robot_gazebo = os.path.join(
-        get_package_share_directory(PACKAGE_NAME + '_gazebo'),
-        'worlds',
-        PACKAGE_NAME + '.world')
-    # DECLARE Gazebo LAUNCH file:
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(get_package_share_directory('gazebo_ros'), 'launch'), '/gazebo.launch.py']),
-                launch_arguments={'world': robot_gazebo}.items(),
-            )
 
     # ***** ROBOT DESCRIPTION ***** #
     # Robot Description file package:
@@ -432,7 +420,6 @@ def generate_launch_description():
     # ========== RETURN LAUNCH DESCRIPTION ========== #
 
     # Add ROS 2 Nodes to LaunchDescription() element:
-    LD.add_action(gazebo)
     LD.add_action(node_robot_state_publisher)
     LD.add_action(static_tf)
     LD.add_action(spawn_entity)
