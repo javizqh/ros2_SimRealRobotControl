@@ -476,25 +476,6 @@ def generate_launch_description():
             target_action = spawn_entity,
             on_exit = [
                 
-                # MoveIt!2:
-                TimerAction(
-                    period=2.0,
-                    actions=[
-                        rviz_node_full,
-                        run_move_group_node,
-                    ]
-                ),
-                
-                ]
-            )
-        )
-    )
-
-    LD.add_action(RegisterEventHandler(
-        OnProcessExit(
-            target_action = spawn_entity,
-            on_exit = [
-                
                 # Interfaces:
                 TimerAction(
                     period=5.0,
