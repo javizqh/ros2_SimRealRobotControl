@@ -127,7 +127,7 @@ def generate_launch_description():
     LD = LaunchDescription()
     
     # === INPUT ARGUMENT: ROS 2 PACKAGE === #
-    PACKAGE_NAME = LaunchConfiguration('package')
+    PACKAGE_NAME = 'ros2srrc_ur5'
     if PACKAGE_NAME != None:
         None
     else:
@@ -151,7 +151,7 @@ def generate_launch_description():
         exit()
     
     # === INPUT ARGUMENT: CONFIGURATION === #
-    CONFIG = LaunchConfiguration('config')
+    CONFIG = 'ur5_2'
     CONFIGURATION = GetCONFIG(CONFIG, PKG_PATH)
 
     if CONFIGURATION["Success"] == False:
