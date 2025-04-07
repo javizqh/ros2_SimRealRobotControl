@@ -24,7 +24,7 @@ __PC Set-Up for Robot Simulation and Control in ROS2__
 
 3. Install ROS2 Humble:
     - Follow instructions in: [ROS2 Humble Tutorials - Installation](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html).
-    - Source the ROS2.0 Humble installation in the .bashrc file (hidden file in /home):
+    - Source the ROS2.0 Humble installation in the .bashrc file (hidden file in ~):
         ```sh
         source /opt/ros/humble/setup.bash
         ```
@@ -38,11 +38,11 @@ __PC Set-Up for Robot Simulation and Control in ROS2__
 
 5. Modify the move_group_interface.h script: A small improvement of the move_group_interface.h file has been developed in order to execute the Robot/Gripper triggers in this repository. Both the upgraded file and the instructions of how to implement it can be found here: [move_group_interface_improved.h](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble/include)
 
-6. Create and configure the ROS2.0 Humble /home/industrial_ws environment/workspace:
+6. Create and configure the ROS2.0 Humble ~/dev_ws environment/workspace:
     - Follow instructions in: [ROS2 Humble Tutorials - Create a ROS2 Workspace](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
-    - Source the /home/industrial_ws workspace in .bashrc file:
+    - Source the ~/dev_ws workspace in .bashrc file:
         ```sh
-        source /home/industrial_ws/install/local_setup.bash
+        source ~/dev_ws/install/local_setup.bash
         ```
 
 7. Install ROS2 packages, which are required for ROS2-based Robot Simulation and Control:
@@ -79,11 +79,11 @@ __PC Set-Up for Robot Simulation and Control in ROS2__
     sudo apt remove ros-humble-gazebo-ros2-control
 
     # Download and install the 0.4.6 version:
-    cd /home/industrial_ws/src
+    cd ~/dev_ws/src
     git clone https://github.com/ros-controls/gazebo_ros2_control.git
     cd gazebo_ros2_control
     git reset --hard 9a3736c # Commit for the 0.4.6 version!
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
     ``` 
 
@@ -92,14 +92,14 @@ __Download and install the required ROS 2 Packages for the Simulation and Contro
 1. __ABB DRIVER for ROS2__: The installation of the [abb_ros2](https://github.com/PickNikRobotics/abb_ros2) driver is required for the control of any real ABB robot using ROS 2.
 
     ```sh
-    mkdir -p /home/industrial_ws/src/ABBDriver
-    cd /home/industrial_ws/src/ABBDriver
+    mkdir -p ~/dev_ws/src/ABBDriver
+    cd ~/dev_ws/src/ABBDriver
     git clone https://github.com/PickNikRobotics/abb_ros2.git -b rolling
     sudo rosdep init
     rosdep update
     vcs import < abb_ros2/abb.repos
     rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
     ```
 
@@ -113,35 +113,35 @@ __Download and install the required ROS 2 Packages for the Simulation and Contro
 
     ```sh
     # IFRA-Cranfield/IFRA_LinkAttacher:
-    cd /home/industrial_ws/src
+    cd ~/dev_ws/src
     git clone https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.git
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
     
     # IFRA-Cranfield/IFRA_ObjectPose:
-    cd /home/industrial_ws/src
+    cd ~/dev_ws/src
     git clone https://github.com/IFRA-Cranfield/IFRA_ObjectPose.git
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
 
     # IFRA-Cranfield/IFRA_LinkPose:
-    cd /home/industrial_ws/src
+    cd ~/dev_ws/src
     git clone https://github.com/IFRA-Cranfield/IFRA_LinkPose.git
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
 
     # IFRA-Cranfield/ros2_RobotiqGripper:
-    cd /home/industrial_ws/src
+    cd ~/dev_ws/src
     git clone https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
-    cd /home/industrial_ws
+    cd ~/dev_ws
     colcon build
     ```
 
 __Download and install ros2_SimRealRobotControl__
 
 ```sh
-cd /home/industrial_ws/src
+cd ~/dev_ws/src
 git clone https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl
-cd /home/industrial_ws
+cd ~/dev_ws
 colcon build
 ```   
