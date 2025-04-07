@@ -462,6 +462,24 @@ def generate_launch_description():
         OnProcessExit(
             target_action = spawn_entity,
             on_exit = [
+
+                # MoveIt!2:
+                TimerAction(
+                    period=2.0,
+                    actions=[
+                        run_move_group_node,
+                    ]
+                ),
+
+                ]
+            )
+        )
+    )
+
+    LD.add_action(RegisterEventHandler(
+        OnProcessExit(
+            target_action = spawn_entity,
+            on_exit = [
                 
                 # Interfaces:
                 TimerAction(
