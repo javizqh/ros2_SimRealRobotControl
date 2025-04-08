@@ -467,7 +467,6 @@ def generate_launch_description():
                 TimerAction(
                     period=2.0,
                     actions=[
-                        rviz_node_full,
                         run_move_group_node,
                     ]
                 ),
