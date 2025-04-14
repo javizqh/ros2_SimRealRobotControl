@@ -130,9 +130,7 @@
 
     <!-- ROS2_CONTROL tag name: -->
     <!-- A. GAZEBO SIMULATION: -->
-    <xacro:unless value="${bringup}">
-      <xacro:property name="name" value="GazeboSystem"/>
-    </xacro:unless>
+    <xacro:property name="name" value="GazeboSystem"/>
     <!-- B. ROBOT BRINGUP: -->
     <xacro:if value="${bringup}">
       <xacro:property name="name" value="ur5"/>
@@ -142,11 +140,9 @@
     <ros2_control name="${name}" type="system">
 
       <!-- A. GAZEBO SIMULATION: -->
-      <xacro:unless value="${bringup}">
-        <hardware>
-          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-        </hardware>
-      </xacro:unless>
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
 
       <!-- B. ROBOT BRINGUP: -->
       <xacro:if value="${bringup}">
@@ -318,43 +314,39 @@
       </joint>
 
       <!-- END EFFECTOR -->
-      <xacro:unless value="${bringup}">
-        <xacro:if value="${EE}">
-          <xacro:include filename="$(find ros2srrc_endeffectors)/${EE_name}/urdf/${EE_name}_ros2control.xacro" />
-          <xacro:EE_ros2control />
-        </xacro:if>
-      </xacro:unless>
+      <xacro:if value="${EE}">
+        <xacro:include filename="$(find ros2srrc_endeffectors)/${EE_name}/urdf/${EE_name}_ros2control.xacro" />
+        <xacro:EE_ros2control />
+      </xacro:if>
 
     </ros2_control>
 
-    <xacro:unless value="${bringup}">
 
-      <gazebo reference="shoulder_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-      <gazebo reference="upper_arm_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-      <gazebo reference="forearm_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-      <gazebo reference="wrist_1_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-      <gazebo reference="wrist_3_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-      <gazebo reference="wrist_2_link">
-        <selfCollide>false</selfCollide>
-      </gazebo>
-    
-      <gazebo reference="end_effector_frame_fixed_joint">
-        <preserveFixedJoint>true</preserveFixedJoint>
-        <!-- For compatibility with SDFormat < 4.4 -->
-        <disableFixedJointLumping>true</disableFixedJointLumping>
-      </gazebo>
+    <gazebo reference="shoulder_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="upper_arm_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="forearm_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_1_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_3_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    <gazebo reference="wrist_2_link">
+      <selfCollide>false</selfCollide>
+    </gazebo>
+  
+    <gazebo reference="end_effector_frame_fixed_joint">
+      <preserveFixedJoint>true</preserveFixedJoint>
+      <!-- For compatibility with SDFormat < 4.4 -->
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
 
-    </xacro:unless>
 
   </xacro:macro>
 
