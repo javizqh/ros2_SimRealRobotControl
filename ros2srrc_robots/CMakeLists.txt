@@ -41,9 +41,13 @@ install(
     irb6640
 
     ur3
+    ur3e
     ur5
+    ur10
     ur10e
     ur16e
+    ur20
+    ur5e
 
     iiwa
 
