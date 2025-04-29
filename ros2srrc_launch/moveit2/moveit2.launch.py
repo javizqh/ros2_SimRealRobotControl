@@ -171,7 +171,7 @@ def generate_launch_description():
     print("")
     print("===== GAZEBO: Robot Simulation + MoveIt!2 Framework (" + PACKAGE_NAME + "_moveit2) =====")
     print("Robot configuration:")
-    print(CONFIGURATION["ID"] + " -> " + CONFIGURATION["Name"])
+    print(CONFIGURATION["ID"] + " -> " + CONFIGURATION["Name"] + CONFIGURATION["rob"])
     print("")
 
     # ***** ROBOT DESCRIPTION ***** #
