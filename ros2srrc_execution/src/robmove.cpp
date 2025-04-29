@@ -236,7 +236,7 @@ int main(int argc, char **argv)
 
     // MoveGroupInterface_ROB:
     using moveit::planning_interface::MoveGroupInterface;
-    auto ROBname = param_ROB + "_arm";
+    std::string ROBname = param_ROB + "_arm";
     move_group_interface_ROB = MoveGroupInterface(MoveIt2_NODE, ROBname);
     move_group_interface_ROB.setPlanningPipelineId("move_group");
 
